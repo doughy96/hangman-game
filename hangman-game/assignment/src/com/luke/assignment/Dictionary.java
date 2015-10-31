@@ -13,22 +13,18 @@ class Dictionary {
 	public List<String> listOfWords = new ArrayList<String>();
 
 	public Dictionary(String filepath) {
-
-		try {
-			file = new BufferedReader(new FileReader(filepath));
-
-			while ((tempCurrentLine = file.readLine()) != null) {
+     try{file = new BufferedReader(new FileReader(filepath));
+          while ((tempCurrentLine = file.readLine()) != null) {
 				listOfWords.add(tempCurrentLine);
+		  }
 
-			}
-
-		} catch (IOException e) {
+    }catch (IOException e) {
 			System.out.print("failed to count #letters in file");
-		}
-
 	}
+				 }
 
 	public String getWordAt(int x) {
 		return listOfWords.get(x);
 	}
+	
 }
