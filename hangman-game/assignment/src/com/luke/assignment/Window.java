@@ -24,8 +24,8 @@ class Window extends JFrame {
 		livesLabel = new JLabel("Lives: " + Hangman.lives);
 		add(selectedWordLabel);
 		add(guessText);
-		add(keyboard);
-		add(livesLabel);
+		
+		//add(livesLabel);
 		setVisible(true);
 
 	}

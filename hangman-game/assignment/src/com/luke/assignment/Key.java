@@ -7,6 +7,11 @@ import javax.swing.JButton;
 
 public class Key extends JButton implements ActionListener {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public Key(String keyText) {
 
 		setText(keyText);
@@ -23,7 +28,7 @@ public class Key extends JButton implements ActionListener {
 				if (getText().toLowerCase().charAt(0) == Hangman.selectedWord.charAt(j)) {
 					Hangman.hyphenArray[j] = Hangman.selectedWord.charAt(j);
 					Window.selectedWordLabel.setText(new String(Hangman.hyphenArray));
-					break;
+				
 				} else {
 
 					Window.livesLabel.setText("Lives: " + Hangman.lives--);
