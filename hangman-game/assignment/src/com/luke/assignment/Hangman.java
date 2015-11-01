@@ -5,7 +5,7 @@ public class Hangman {
 	public static char[] hyphenArray;
 	public static String selectedWord;
 	public static Window window = null;
-	String letters = "AEIOUYBCDFGHJKLMNPRSTVWXZ";
+	String letters = "aeiouybcdfghjklmnpqrstvwxz";
 	public Key[] keys = new Key[26];
 	public static int lives = 5;
 
@@ -16,8 +16,18 @@ public class Hangman {
 	}
 
 	public Hangman() {
+		
 		window = new Window("Hangman");
-		Dictionary dictionary = new Dictionary("C:/Users/Luke/Documents/dictionary.txt");
+		
+		
+		for (int i = 0; i < letters.length(); i++) {
+			keys[i] = new Key("" + letters.charAt(i));
+			Window.keyboard.add(keys[i]);
+		}
+			window.add(Window.keyboard);
+			System.out.println("added keyboard");
+		Dictionary dictionary = new Dictionary(getClass().getResourceAsStream("/dictionary.txt"));
+		//Dictionary dictionary = new Dictionary("C:/Users/Luke/Documents/dictionary.txt");
 		selectedWord = dictionary.randomWord;
 		hyphenArray = new char[selectedWord.length()];
 		String arrayAsString = "";
@@ -25,16 +35,12 @@ public class Hangman {
 			hyphenArray[i] = '-';
 			arrayAsString += hyphenArray[i];
 		}
+		
 		Window.selectedWordLabel.setText(arrayAsString);
-		for (int i = 0; i < letters.length(); i++) {
-			keys[i] = new Key("" + letters.charAt(i));
+		
+		System.out.println(Window.selectedWordLabel.getText());
 	
-			Window.keyboard.add(keys[i]);
-			
-			window.add(Window.keyboard);
-			System.out.println("keysaylmao");
-		}
 	}
 }
 
-// need to make a new array of words only
+
